@@ -14,6 +14,13 @@ def auth(post_id):
     if post_id == os.environ['LETSENCRYPT_REQUEST']:
         return os.environ['LETSENCRYPT_RESPONSE']
 
+@app.route('/callback')
+def callback():
+    return 'Hello'
+
+
 if __name__ == '__main__':
     port = os.environ.get('PORT', 5000)
     app.run(host='0.0.0.0', port=port)
+#    context=('fullchain.pem', 'privkey.pem')
+#    app.run(host='0.0.0.0', port=port, ssl_context=context)
